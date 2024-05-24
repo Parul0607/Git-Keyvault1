@@ -24,5 +24,8 @@ jobs:
         inlineScript: |
           az keyvault secret show --name secretgit --vault-name ${{ secrets.AZURE_KEY_VAULT }} --query value -o tsv
 
-    - name: Use the secret
-      run: echo "Secret fetched: ${{ steps.get-secret.outputs.value }}"
+- name: Debug Secret Value
+  run: echo "Secret value: ${{ steps.get-secret.outputs.value }}"
+
+- name: Use the secret
+  run: echo "Secret fetched: ${{ steps.get-secret.outputs.value }}"
