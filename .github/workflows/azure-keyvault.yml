@@ -22,7 +22,7 @@ jobs:
       with:
         azcliversion: latest
         inlineScript: |
-          az keyvault secret show --name <your-secret-name> --vault-name ${{ secrets.AZURE_KEY_VAULT }} --query value -o tsv
+          az keyvault secret show --name secretgit --vault-name ${{ secrets.AZURE_KEY_VAULT }} --query value -o tsv
 
     - name: Use the secret
       run: echo "Secret fetched: ${{ steps.get-secret.outputs.value }}"
